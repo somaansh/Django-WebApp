@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock title %}
+
+{% block body %}
+<!--   <div class="container-fluid px-0 mb-3">
+  <img src="https://source.unsplash.com/1600x500/?register" class="d-block w-100" alt="...">  
+</div>  -->
+
+<div class="container mb-3 py-4">
+<h2 class="text-center">Registeration</h2>
+
+<form method="post" class="row g-3">
+  {% csrf_token %}
+  
+   <div class="col-md-6">
+    <label for="exampleInputname" class="form-label">Full Name</label>
+    <input type="text" class="form-control" placeholder="Full Name"  name="fname" aria-label="Full name" required>
+  </div>
+
+   <div class="col-md-6">
+      <label for="formFile" class="form-label">Photo</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+
+  <div class="form-group">
+      <label for="exampleInputEmail" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail" name="email" aria-describedby="emailHelp" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="form-group">
+     <label for="phoneno" class="form-label">Contact Number</label>
+      <input type="phone" class="form-control" id="number" name="phone" required>
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword">
+  </div>
+
+  <div class="col-md-6">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="inputConfirmPassword4">
+  </div>
+  
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+
+  <div class="col-md-4">
+     <label for="inputState" class="form-label">State</label>
+     <input type="text" class="form-control" id="inputState">
+  </div>
+
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+
+   <div class="col-md-4 mb-3">
+      <label for="formFile" class="form-label">Id-card</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Information provided by me is correct
+      </label>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary mb-3">Register</button>
+  </div>
+</form>
+
+<!-- <form method="post" >
+  {% csrf_token %}
+    <div class ="form-group mb-3">
+        <label for="exampleInputname" class="form-label">Full Name</label>
+        <input type="text" class="form-control" placeholder="Full Name"  name="fname" aria-label="Full name" required>
+   </div>
+
+    <div class ="form-group mb-3">
+      <label for="exampleInputEmail" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail" placeholder="name@example.com" name="email" aria-describedby="emailHelp" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    
+    <div class ="form-group mb-3">
+      <label for="phoneno" class="form-label">Contact Number</label>
+      <input type="phone" class="form-control" id="number" name="phone" placeholder="your contact number" required> 
+    </div>  
+
+    <div class ="form-group mb-3">
+      <label for="yourquery" class="form-label">Please help us with your Query</label>
+      <textarea class="form-control" id="query" rows="3" name="query" required></textarea>
+    </div>
+
+    <div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" required="">
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+              </div>
+
+    <div class="col-md-4">
+
+
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" id="state" required="">
+                <option value="">Choose...</option>
+                <option>California</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+
+    <div class="col-md-3">
+
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="zip" placeholder="" required="">
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+    </div>
+    
+    <div class="col-md-4 mb-3">
+      <label for="formFile" class="form-label">Id-card</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+  </form> 
+</div> -->
+
+{% endblock body %}
