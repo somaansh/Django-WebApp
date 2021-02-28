@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'webApp.apps.WebappConfig',
+    'quizes',
+    'questions',
+    'results',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,5 +128,6 @@ STATIC_URL = '/static/'
 
 #added manually
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static")
+   os.path.join(BASE_DIR, "static"),
+   BASE_DIR / 'quizes' / 'static',
 ]

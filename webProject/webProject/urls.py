@@ -15,13 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 
-admin.site.site_header = "MyWebsite Admin"
-admin.site.site_title = "MyWebsite Admin Portal"
-admin.site.index_title = "Welcome to MyWebsite"
+admin.site.site_header = "ExamIn Admin"
+admin.site.site_title = "ExamIn Admin Portal"
+admin.site.index_title = "Welcome to ExamIn"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('webApp.urls'))
+    path('', include('webApp.urls')),
+    path('quiz/', include('quizes.urls', namespace='quizes')),
+    path('main/', include('quizes.urls', namespace='quizes')),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
