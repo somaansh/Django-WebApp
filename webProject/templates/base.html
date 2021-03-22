@@ -1,85 +1,153 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> {% block title %}{% endblock title %} |MyWebsite </title>
-  </head>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-  <body>
+  <title> {% block title %}{% endblock title %} |MyWebsite </title>
+</head>
 
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-    <a class="navbar-brand" href="#">ExamIn</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Services
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/services">App Developer</a></li>
-            <li><a class="dropdown-item" href="/services">Website Developer</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Looking for something else?</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ExamIn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact Us</a>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/services">App Developer</a></li>
+              <li><a class="dropdown-item" href="/services">Website Developer</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Looking for something else?</a></li>
+            </ul>
+          </li>
 
-      </ul>
-     <!--  <form class="d-flex">
-        <button class="btn btn-outline-success" type="submit">Register</button>
-      </form> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Register</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="/quiz">Take Exam</a>
+          </li>
+
+        </ul>
+        <!--  <form class="d-flex">
+            <button class="btn btn-outline-success" type="submit">Register</button>
+        </form> -->
+<!--  
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Welcome {{request.user}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </li>
+
+        </ul>
+
+        -->
+
+        <!--{% else %} -->
+        <!-- Button to trigger login  modal -->
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Login
+        </button>
+        <!--{% endif %} -->
+      </div>
     </div>
-     </div>
   </nav>
 
-    {% if messages %}
-     {% for message in messages %}
-      <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
-      <strong> {{ message }} </strong>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+    <strong> {{ message }} </strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+
+
+  <!--  Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          <form method='post'>
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="loginemail" name="loginemail" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="loginpwsd" name="loginpwsd" placeholder="Enter your password">
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
       </div>
-     {% endfor %}
-    {% endif %}
+    </div>
+  </div>
 
-  {% block body %}{% endblock body %}
-    <!-- Optional JavaScript; choose one of the two! -->
+  {% block body %}
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  {% endblock body %}
+  <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
- </body>
+</body>
 
- <!--register modal-->
+<!--register modal-->
 
 <!-- Button to trigger register modal 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registermodal">
@@ -106,8 +174,8 @@
     <label for="exampletext" Text </label>
     <input type="text" class="form-control" id="text" aria-describedby="textHelp">
   </div> -->
-  
-  <!--<button type="submit" class="btn btn-primary">Submit</button> -->
+
+<!--<button type="submit" class="btn btn-primary">Submit</button> -->
 <!--</form>
       </div>
       <div class="modal-footer">
@@ -115,7 +183,7 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
-  </div> -->
-</div> 
+  </div> 
+</div> -->
 
 </html>

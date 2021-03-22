@@ -33,22 +33,53 @@ Quiz
   </div>
 </div>
 
-<div class = "h1"> Quiz List </div>
+<div class = "h1"> Please select your Exam  </div>
 <hr>
 
 {% for obj in object_list %} 
-    <button
-        class="btn btn-link modal-button"
-        data-pk="{{obj.pk}}"
-        data-quiz="{{obj.name}}"
-        data-questions="{{obj.number_of_questions}}"
-        data-difficulty="{{obj.difficulty}}"
-        data-time="{{obj.time}}"
-        data-pass= "{{obj.required_score_to_pass}}"
-        data-toggle="modal" 
-        data-target="#quizStartModal">
-        {{obj.name}}
-    </button><br>    
+    <!--<button
+      class="btn btn-link modal-button"
+      data-pk="{{obj.pk}}"
+      data-quiz="{{obj.name}}"
+      data-questions="{{obj.number_of_questions}}"
+      data-difficulty="{{obj.difficulty}}"
+      data-time="{{obj.time}}"
+      data-pass= "{{obj.required_score_to_pass}}"
+      data-toggle="modal" 
+      data-target="#quizStartModal">
+      {{obj.name}}
+    </button><br>   -->
+
+    <div class="container my-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols- g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+           
+            <div class="card-body">
+              <p class="card-text">This is a fundamental quiz to check your knowledge related {{obj.name}} </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button"
+                  class="btn btn-link modal-button btn-outline-secondary"
+                  data-pk="{{obj.pk}}"
+                  data-quiz="{{obj.name}}"
+                  data-questions="{{obj.number_of_questions}}"
+                  data-difficulty="{{obj.difficulty}}"
+                  data-time="{{obj.time}}"
+                  data-pass= "{{obj.required_score_to_pass}}"
+                  data-toggle="modal" 
+                  data-target="#quizStartModal">
+                  {{obj.name}} -
+                  Take Test
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
         
-{% endfor %}        
+{% endfor %}  
+
 {% endblock content %}

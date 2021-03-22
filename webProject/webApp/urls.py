@@ -4,10 +4,11 @@ from webApp import views
 
 urlpatterns = [
     path("", views.index, name='home'),
-    path("register/", views.register, name='register'),
+    #path("register/", views.register, name='register'),
     path("contact/", views.contact, name='contact'),
     path("services/", views.services, name='services'),
-    path("login/", views.loginUser, name='login'),
-    path("logout/", views.logoutUser, name='logout'),
-    #path("successlogin/", views.logoutUser, name='logout'),
+    path("signup/", views.handleSignup, name='handleSignup'),
+    path("login/", views.handleLogin, name='handleLogin'),
+    path("logout/", views.handleLogout, name='handleLogout'),
+    path("newlogin/", views.newLogin, name='newLogin')
 ]
