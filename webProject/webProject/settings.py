@@ -130,6 +130,6 @@ LOGIN_REDIRECT_URL = 'quizes/main/'
 
 #added manually
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
+   BASE_DIR  / 'static',
    BASE_DIR / 'quizes' / 'static',
 ]

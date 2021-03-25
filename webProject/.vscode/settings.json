@@ -1,3 +1,4 @@
 {
-    "editor.autoClosingBrackets": "always"
+    "editor.autoClosingBrackets": "always",
+    "python.pythonPath": "C:\\Users\\somanshu\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
 }
